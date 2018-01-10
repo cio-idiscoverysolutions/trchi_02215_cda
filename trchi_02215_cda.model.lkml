@@ -36,4 +36,10 @@ explore: cda {
     relationship: one_to_many
     view_label: "CDA Results"
     }
+  join: udf{
+    type: left_outer
+    sql_on: ${cda_results.udf_id} = ${udf.udf_id} ;;
+    relationship: one_to_many
+    view_label: "UDF"
+  }
   }
