@@ -27,8 +27,9 @@ explore: script {
 
 explore: users {}
 
+
 explore: cda {
-  label: "Common Data Attribute"
+  label: "CDA"
   join: cda_results{
     type: left_outer
     sql_on: ${cda.cda_id} = ${cda_results.cda_id} ;;
