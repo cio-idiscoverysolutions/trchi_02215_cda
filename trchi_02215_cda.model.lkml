@@ -28,13 +28,13 @@ explore: script {
 explore: users {}
 
 
-explore: cda {
-  label: "CDA"
-  join: cda_results{
+explore: cda_results {
+  label: "cda results"
+  join: cda{
     type: left_outer
-    sql_on: ${cda.cda_id} = ${cda_results.cda_id} ;;
+    sql_on: ${cda_results.cda_id} = ${cda.cda_id} ;;
     relationship: one_to_many
-    view_label: "CDA Results"
+    view_label: "CDA"
     }
   join: udf{
     type: left_outer
@@ -42,4 +42,32 @@ explore: cda {
     relationship: one_to_many
     view_label: "UDF"
   }
+
+  join: ppl{
+    type: left_outer
+    sql_on: ${cda_results.ppl_id} = ${ppl.ppl_id} ;;
+    relationship: one_to_many
+    view_label: "People "
+
+  }
+  join: obj{
+    type: left_outer
+    sql_on: ${cda_results.obj_id} = ${obj.obj_id} ;;
+    relationship: one_to_many
+    view_label: "Object"
+  }
+  join: loc{
+    type: left_outer
+    sql_on: ${cda_results.loc_id} = ${loc.loc_id} ;;
+    relationship: one_to_many
+  }
+  join: evt{
+    type: left_outer
+    sql_on: ${cda_results.evt_id} = ${evt.evt_id} ;;
+    relationship: one_to_many
+  }
+
+
+
+
   }

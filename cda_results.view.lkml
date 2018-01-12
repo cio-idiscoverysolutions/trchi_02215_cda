@@ -33,7 +33,26 @@ view: cda_results {
     # hidden: yes
     sql: ${TABLE}.UDF_ID ;;
   }
-
+  dimension: ppl_id {
+    type: number
+    # hidden: yes
+    sql: ${TABLE}.PPL_ID ;;
+  }
+  dimension: obj_id {
+    type: number
+    # hidden: yes
+    sql: ${TABLE}.OBJ_ID ;;
+  }
+  dimension: loc_id {
+    type: number
+    # hidden: yes
+    sql: ${TABLE}.LOC_ID ;;
+  }
+  dimension: evt_id {
+    type: number
+    # hidden: yes
+    sql: ${TABLE}.EVT_ID ;;
+  }
   measure: count {
     type: count
     drill_fields: [cda_results_id, cda.cda_id, cda.name, udf.udf_id]
