@@ -21,7 +21,6 @@ view: trchi_02215_cda_0010 {
         Inner Join dim.PPL p
           ON p.PPL_ID = u.PPL_ID
       Where cr.CDA_ID = 11
-      ORDER BY u.DATE_BEG_SOURCE, RESULTS_NUM_VALUE
        ;;
   }
 
