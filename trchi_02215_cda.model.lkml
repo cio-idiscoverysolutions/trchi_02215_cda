@@ -21,6 +21,9 @@ explore: trchi_02215_cda_0008 {
   from: trchi_02215_cda_0008
 }
 
+explore: trchi_02215_cda_0010 {
+  from: trchi_02215_cda_0010
+}
 
 explore: primary_audit {}
 
