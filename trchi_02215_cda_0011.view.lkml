@@ -5,7 +5,8 @@ view: trchi_02215_cda_0011 {
         --, o.OBJ_ID
         , o.NAME 'File/Folder'
         , o.NOTES
-        , case when o.notes like '%mail.google.com%' then 1 else 0 end as gmail_ind
+        , o.description
+        , case when o.description like '%mail.google.com%' then 1 else 0 end as gmail_ind
       --  , u.UDF_ID
         , u.DATE_BEG_SOURCE 'Activity Date'
         , p.FULL_NAME
@@ -93,11 +94,17 @@ view: trchi_02215_cda_0011 {
     sql: ${TABLE}."Activity Detail" ;;
   }
 
+  dimension: description {
+    type: string
+    sql: ${TABLE}.description ;;
+  }
+
   set: detail {
     fields: [
       cda_name,
       risk_level,
       filefolder,
+      description,
       notes,
       gmail_ind,
       activity_date_raw,
