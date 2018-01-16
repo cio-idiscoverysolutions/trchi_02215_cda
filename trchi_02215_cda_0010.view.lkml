@@ -29,6 +29,11 @@ view: trchi_02215_cda_0010 {
     drill_fields: [detail*]
   }
 
+  measure: number_of_unique_visits {
+    type: count_distinct
+    sql: ${activity_date_time} ;;
+  }
+
   dimension: cda_name {
     type: string
     label: "CDA Name"
