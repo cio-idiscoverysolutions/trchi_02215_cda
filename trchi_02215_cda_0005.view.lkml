@@ -1,9 +1,9 @@
 view: trchi_02215_cda_0005 {
   derived_table: {
     sql: Select c.DESCRIPTION 'CDA Name'
-        , case when cr.RESULTS_NUM_VALUE = 0 then 'Low: USB Insertion'
-          when cr.RESULTS_NUM_VALUE = 50 then 'Medium: File activity '
-          when cr.RESULTS_NUM_VALUE = 10 then 'High: File activity of interest ' end as risk
+        , case when cr.RESULTS_NUM_VALUE = 50 then 'Low: Other file activity'
+          when cr.RESULTS_NUM_VALUE = 10 then 'Medium: File activity on USB'
+          when cr.RESULTS_NUM_VALUE = 0 then 'High: USB insertion' else 'Undetermined' end as risk
         , o.NAME 'File/Folder'
         , u.DATE_BEG_SOURCE 'Activity Date'
         , p.FULL_NAME
