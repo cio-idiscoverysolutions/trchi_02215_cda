@@ -58,10 +58,10 @@ view: cda_results {
     drill_fields: [cda_results_id, cda.cda_id, cda.name, udf.udf_id]
   }
   dimension: risk {
-    sql: CASE WHEN ${results_num_value} = 0  THEN 'Low/USB Insertion'
-              WHEN ${results_num_value} = 50  THEN 'Medium/File activity '
-              WHEN ${results_num_value} = 10  THEN 'High/File activity of interest '
-              ELSE NULL
+    sql: CASE WHEN ${results_num_value} = 0  THEN 'High/USB insertion'
+              WHEN ${results_num_value} = 10  THEN 'Medium/File activity on USB'
+              WHEN ${results_num_value} = 50  THEN 'Low/Other file activity''
+              ELSE 'Undetermined'
          END ;;
   }
 }
