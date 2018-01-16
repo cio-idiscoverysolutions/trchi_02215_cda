@@ -25,7 +25,6 @@ view: trchi_02215_cda_0005 {
           AND att.PPL_ID = p.PPL_ID
           and att.EVT_ID = e.EVT_ID
       Where cr.CDA_ID = 6
-      ORDER BY u.DATE_BEG_SOURCE, RESULTS_NUM_VALUE
        ;;
   }
 
