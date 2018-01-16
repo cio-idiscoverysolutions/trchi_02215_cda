@@ -13,6 +13,10 @@ datagroup: trchi_02215_cda_default_datagroup {
 
 persist_with: trchi_02215_cda_default_datagroup
 
+explore: trchi_02215_cda_0005 {
+  from: trchi_02215_cda_0005
+}
+
 explore: primary_audit {}
 
 explore: relationship {}
