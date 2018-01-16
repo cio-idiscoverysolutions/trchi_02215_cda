@@ -5,7 +5,7 @@ view: trchi_02215_cda_0005 {
           when cr.RESULTS_NUM_VALUE = 10 then 'Medium: File activity on USB'
           when cr.RESULTS_NUM_VALUE = 0 then 'High: USB insertion' else 'Undetermined' end as risk
         , o.NAME 'File/Folder'
-        , u.DATE_BEG_SOURCE 'Activity Date'
+        , u.DATE_BEG_SOURCE 'Activity_Date'
         , p.FULL_NAME
         , e.NAME As 'Event'
         , att.DESCRIPTION 'Activity Detail'
@@ -49,11 +49,22 @@ view: trchi_02215_cda_0005 {
     sql: ${TABLE}."File/Folder" ;;
   }
 
-  dimension: activity_date {
-    type: string
-    label: "Activity Date"
-    sql: ${TABLE}."Activity Date" ;;
+
+  dimension_group: activity_date_group {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}."Activity_Date" ;;
   }
+
+
 
   dimension: full_name {
     type: string
@@ -76,7 +87,13 @@ view: trchi_02215_cda_0005 {
       cda_name,
       risk,
       filefolder,
-      activity_date,
+      activity_date_group_raw,
+      activity_date_group_time,
+      activity_date_group_date,
+      activity_date_group_week,
+      activity_date_group_month,
+      activity_date_group_quarter,
+      activity_date_group_year,
       full_name,
       event,
       activity_detail
